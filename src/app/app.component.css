@@ -1,3 +1,116 @@
-p {
-  font-family: Lato;
+.phone {
+  position: relative;
+  width: 360px;
+  height: 500px;
+  margin: auto;
+  border: 16px black solid;
+  border-top-width: 60px;
+  border-bottom-width: 60px;
+  border-radius: 36px;
+}
+
+/* The horizontal line on the top of the device */
+.phone:before {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 5px;
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #333;
+  border-radius: 10px;
+}
+
+/* The circle on the bottom of the device */
+.phone:after {
+  content: '';
+  display: block;
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  left: 50%;
+  bottom: -65px;
+  transform: translate(-50%, -50%);
+  background: #333;
+  border-radius: 50%;
+}
+
+/* The screen (or content) of the device */
+.phone .content {
+  width: 346px;
+  height: 498px;
+  background: #0f8ec7;
+  padding:7px;
+}
+
+
+
+
+.tab {
+    float: left;
+    width: 47.33%;
+    text-align: left;
+    padding-top: 11px;
+    line-height: 4px;
+    padding-left: 6px;
+    font-size: 13px;
+    height: 31px;
+    cursor: pointer;
+}
+
+.tab-container {
+  border-bottom: 1px solid #bfbfbf;
+}
+.tab-container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.container {
+  width: 340px;
+  margin: auto;  
+  font-family: sans-serif;
+  background: white;
+}
+
+.tab:nth-child(2) {
+  border-left: 1px solid #bfbfbf;
+  text-align: right;
+}
+
+.list .item span:first-child {
+    color: #0f8ec7;
+    font-size: 14px;
+    font-weight: bold;    
+  }
+  .list .item span:last-child {
+    font-weight: bold;  
+    font-size: 14px;
+  }
+
+  .list .item:last-child{
+    border-bottom: unset;
+  }
+
+.sort-indicator {
+    color: #0f8ec7;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 5px;
+    vertical-align: -webkit-baseline-middle;
+}
+
+.list .item .pull-right {
+  float: right;
+  text-align: right;
+}
+.list .item .pull-right p {
+  line-height: 0;
+}
+.list .item {
+  border-bottom: 1px solid #bfbfbf;
+  min-height: 35px;
+  padding: 10px;
 }

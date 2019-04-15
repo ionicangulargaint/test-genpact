@@ -1,0 +1,8 @@
+.loadMoreBtn{
+    text-align: center;
+    cursor: pointer;
+    color: #0f8ec7;
+    padding-bottom: 10px;
+    font-weight: bold;
+    font-size: 13px;
+}
