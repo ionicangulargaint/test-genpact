@@ -1,3 +1,8 @@
+/**
+ * data model
+ * @AccountModel
+ */
+
 export class AccountModel {
     account: string;
     totalAmount: number;

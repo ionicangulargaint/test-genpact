@@ -3,10 +3,10 @@
     <div class="container">
   <div class="tab-container">
     <div class="tab" (click)="shortList('account')">Account 
-      <span *ngIf="sortAccountFlag != undefined" class="sort-indicator">{{sortAccountFlag ? '^' : 'v'}}</span></div>
+      <span *ngIf="sortAccountFlag != undefined && showAccount" class="sort-indicator">{{sortAccountFlag ? 'v' : '^'}}</span></div>
     <div class="tab" (click)="shortList('totalAmount')">
       <span class="sort-indicator"
-        *ngIf="sortCashFlag != undefined">{{sortCashFlag ? 'v' : '^'}}</span><strong>Available Cash</strong>
+        *ngIf="sortCashFlag != undefined && !showAccount">{{sortCashFlag ? 'v' : '^'}}</span><strong>Available Cash</strong>
       <p>Today's Change</p>
     </div>
   </div>

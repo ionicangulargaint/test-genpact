@@ -12,6 +12,11 @@ import { GetFinanceData } from './services/data.services';
 import { AppComponent } from './app.component';
 
 
+    /**
+     * main module which is going to be bootstraped first, as declared in main.ts to bootstrap first
+     * @AppModule
+     */
+
 @NgModule({
   declarations: [
     AppComponent

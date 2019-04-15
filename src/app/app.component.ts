@@ -11,17 +11,35 @@ export class AppComponent {
   pageItem: any = [];
   dataItems: AccountModel[];
   sortCashFlag: any;
-  sortAccountFlag: any; 
-  constructor(private service: GetFinanceData) { }
+  sortAccountFlag: any;
+  showAccount: boolean = false;
+
+  constructor(
+    private service: GetFinanceData
+  ) { }
+
 
   ngOnInit(): void {
     this.getMockData();
   }
 
+  /**
+   * get mock data from service 
+   * @getMockData
+   */
+
   getMockData(): void {
-    this.dataItems = this.service.getAccountsMock();    
+    const accountsDataObservable = this.service.getAccountsMock();
+    accountsDataObservable.subscribe((response: AccountModel[]) => {
+      this.dataItems = response;
+    });
   }
 
+
+  /**
+   * sort the list as per property avaibale in mock data 
+   * @shortList
+   */
 
   shortList(selectedProperty) {
     let validFlag = isNaN(this.pageItem[0][selectedProperty]);
@@ -29,24 +47,15 @@ export class AppComponent {
       this.pageItem.sort((currentItem, nextItem) => {
         return this.sortCashFlag ? (currentItem[selectedProperty] - nextItem[selectedProperty]) : (nextItem[selectedProperty] - currentItem[selectedProperty]);
       })
-      this.sortCashFlag = !this.sortCashFlag;      
+      this.sortCashFlag = !this.sortCashFlag;
+      this.showAccount = false;
     } else {
       this.pageItem.sort((currentItem, nextItem) => {
         return this.sortAccountFlag ? (currentItem[selectedProperty].match(/\d+/g).map(Number) - nextItem[selectedProperty].match(/\d+/g).map(Number)) : (nextItem[selectedProperty].match(/\d+/g).map(Number) - currentItem[selectedProperty].match(/\d+/g).map(Number));
       })
       this.sortAccountFlag = !this.sortAccountFlag;
+      this.showAccount = true;
     }
-
   }
 
-  sortAccount() {
-    this.pageItem.sort((obj1, obj2) => {
-      if (this.sortAccountFlag) {
-        return (obj1.account.split(" ")[2] - obj2.account.split(" ")[2]);
-      } else {
-        return (obj2.account.split(" ")[2] - obj1.account.split(" ")[2]);
-      }
-    });
-
-  }
 }
