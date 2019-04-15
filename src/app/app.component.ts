@@ -3,7 +3,7 @@ import { AccountModel } from './model/data.model';
 import { GetFinanceData } from './services/data.services';
 
 @Component({
-  selector: 'app-root',
+  selector: 'market-status-app',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
